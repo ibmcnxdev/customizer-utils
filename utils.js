@@ -27,8 +27,8 @@
      * window.onhashchange handler
      */
     handleOnHashChange: function() {
-      for(var i = 0; i < onHashChangeQueue.length; i++) {
-        onHashChangeQueue[i]();
+      for(var i = 0; i < this.onHashChangeQueue.length; i++) {
+        this.onHashChangeQueue[i]();
       }
     },
 
