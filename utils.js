@@ -24,14 +24,6 @@
     onHashChangeQueue: [],
 
     /*
-     * Utility function to add to the onHashChange callback queue
-     */
-    addOnHashChangeCallback: function(callback) {
-      this.onHashChangeQueue.push(callback);
-      window.onhashchange = this.handleOnHashChange;
-    },
-
-    /*
      * window.onhashchange handler
      */
     handleOnHashChange: function() {
@@ -39,6 +31,15 @@
         onHashChangeQueue[i]();
       }
     }
+
+    /*
+     * Utility function to add to the onHashChange callback queue
+     */
+    addOnHashChangeCallback: function(callback) {
+      this.onHashChangeQueue.push(callback);
+      window.onhashchange = this.handleOnHashChange;
+    },
+
   };
 
 })();
