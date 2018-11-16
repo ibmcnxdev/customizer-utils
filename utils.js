@@ -30,7 +30,7 @@
       for(var i = 0; i < onHashChangeQueue.length; i++) {
         onHashChangeQueue[i]();
       }
-    }
+    },
 
     /*
      * Utility function to add to the onHashChange callback queue
@@ -38,7 +38,7 @@
     addOnHashChangeCallback: function(callback) {
       this.onHashChangeQueue.push(callback);
       window.onhashchange = this.handleOnHashChange;
-    },
+    }
 
   };
 
