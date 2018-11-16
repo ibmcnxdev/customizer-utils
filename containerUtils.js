@@ -23,7 +23,7 @@
       }
 
       function addIFrame() {
-        var dropSpot = dojo.query('${locator}');
+        var dropSpot = dojo.query(locator);
 
         var iframeWidget = `
           <div id='iframeContainer${injectionId}' class='${iframeContainerClass}'>
@@ -35,20 +35,20 @@
              <iframe id='iframeContent${injectionId}' class='${iframeContentClass}' src='${url}' sandbox='${sandbox}'${iframeProperties}>
              </iframe>
          </div>`;
-        dojo.place(iframeWidget, dropSpot[0], '${position}');
+        dojo.place(iframeWidget, dropSpot[0], position);
       };
 
       __customizer.addOnHashChangeCallback(function() {
         setTimeout(function() {
-          var existingIframe = dojo.byId('iframeContainer${injectionId}');
+          var existingIframe = dojo.byId(`iframeContainer${injectionId}`);
           if (existingIframe) {
             dojo.destroy(existingIframe);
           }
-          addIFrame$();
+          addIFrame();
         }, 1000);
       });
 
-      __customizer.waitFor(addIFrame, '${locator}');
+      __customizer.waitFor(addIFrame, locator);
     }
   }
 })();
